@@ -1,0 +1,16 @@
+
+
+<div  *ngIf="point" class="alert alert-danger">
+    <strong>POLYGON MUST NEED MORE THAN 3 POINTS</strong> 
+  </div>
+<agm-map [latitude]="center.lat" [longitude]="center.lng" (mapReady)="onMapReady($event)" >
+  
+</agm-map>
+
+
+
+
+
+
+
+<!-- <app-form  [childMessage]="parentMessage" ></app-form> -->

@@ -1,0 +1,67 @@
+<div class="main">
+<div class = "searchdiv">
+    
+    <h3>GeoFencing</h3>
+    
+</div>
+
+
+<div class ="tab"></div>
+<div class ="container">
+    <form #form="ngForm" (submit)="onsubmit(form)" autocomplete="off" >
+        <div class="form-group">
+         <p>{{status}}</p>
+            <label>NAME</label>
+            <input name="name" #name="ngModel" [(ngModel)]="service.formdata.name" class="form-control" placeholder="Name of the place" required >
+            <div class="validation-error" *ngIf="name.invalid && name.touched">This field is required.</div>
+          </div>
+          <div class="form-group">
+            <label>shortcode</label>
+            <input name="shortCode" #shortCode="ngModel" [(ngModel)]="service.formdata.shortCode" placeholder="Shortcode of the place" class="form-control" required>
+            <div class="validation-error" *ngIf="shortCode.invalid && shortCode.touched">This field is required.</div>
+            <div *ngIf="isExist" class="validation-error">
+              SHORTCODE ALREADY EXIST
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="hidden" name="geofence" #geofence="ngModel" [(ngModel)]="service.formdata.geofence" class="form-control" required>
+          </div>
+        <div class="form-group">
+          <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block">SUBMIT</button>
+        </div>
+      </form>
+      <br>
+      <div *ngIf="ines" class="validation-error">
+       <b>ALREADY UPDATED</b> 
+      </div>
+<div class="table-wrapper-scroll-y my-custom-scrollbar">
+<table class="table ">
+  
+    <tr >
+      
+      <th scope="col" style="font-size: 20px; color: white; background-color: #f9cb33;" >Name</th>
+      <th scope="col" style="font-size: 20px; color: white; background-color: #f9cb33;">ShortCode</th>
+    
+      <th scope="col" style="font-size: 20px; color: white; background-color: #f9cb33;">PostToEs</th>
+      
+    </tr>
+    <tr *ngFor ="let b of a">
+    <td style="text-align: center;"><b>{{b.name}}</b></td>
+    <td style="text-align: center;"><b>{{b.shortCode}}</b></td>
+    
+    <td>
+      <button style="margin-left: 30px;" (click)="toes(b.id,b.isactive,b.name,b.shortCode,b.geofence)"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-up-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
+      </svg></button>
+    </td>
+  
+</table>
+</div>
+<div *ngFor="let c of data">
+  <p>{{c}}</p>
+</div>
+
+</div>
+
+
+

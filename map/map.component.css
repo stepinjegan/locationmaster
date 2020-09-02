@@ -1,0 +1,14 @@
+agm-map {
+    height: 100%;
+    width: 100%;
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+  }
+  .btn{
+    align-items: center;
+    color: white;
+    background-color: #f9cb33;
+    width: 200px;
+    border-radius: 20px;
+}
